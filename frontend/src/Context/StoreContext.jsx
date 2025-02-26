@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
     const [token, setToken] = useState("");
 
     const [food_list, setFoodList] = useState([]);
-
+    
 
     const getUser = async (token) => { 
         const response = await axios.get(`${url}/api/user/getUser`,{headers: {token}});

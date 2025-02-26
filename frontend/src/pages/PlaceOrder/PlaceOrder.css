@@ -37,11 +37,37 @@
 
 .place-order .cart-total button{
     margin-top: 30px;
+    margin-left: 150px;
+}
+
+.btn-spinner{
+    min-height: 10vh;
+    display: grid;
+}
+
+.btn-spinner .spinner{
+    width: 100px;
+    height: 100px;
+    place-self: center;
+    border: 5px solid #bdbdbd;
+    border-top-color: red;
+    border-radius: 50%;
+    animation: rotate 1s infinite;
+}
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg );
+    }
 }
 
 @media (max-width: 750px){
     .place-order{
         margin-top: 5%;
         flex-direction: column;
+    }
+
+    .place-order .cart-total button{
+        margin-left: 70px;
     }
 }

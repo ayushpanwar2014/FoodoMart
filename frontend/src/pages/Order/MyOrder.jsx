@@ -25,7 +25,7 @@ const MyOrder = () => {
   const handleToRemove = async (id) => {
     try {
 
-      const response = await axios.post(`${url}/api/order/removeOrder`, {id});
+      const response = await axios.post(`${url}/api/order/removeOrder`, { id });
 
       if (response.data.success) {
         toast.success("Order Removes!")
@@ -67,6 +67,12 @@ const MyOrder = () => {
             </div>
           )
         })}
+        {
+          order.length === 0 &&
+          <>
+            <h1 style={{ color: 'red', textAlign: 'center' }}>You Haven't  Orderd Yet!</h1>
+          </>
+        }
       </div>
     </div>
   )

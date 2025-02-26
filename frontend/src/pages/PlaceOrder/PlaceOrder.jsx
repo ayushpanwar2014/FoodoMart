@@ -6,7 +6,7 @@ import axios from "axios";
 const PlaceOrder = () => {
 
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
-
+  const [spinner, setSpinner] = useState(false);
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -29,10 +29,11 @@ const PlaceOrder = () => {
   const placeOrder = async (e) => {
     e.preventDefault();
 
+    setSpinner(prev => !prev);
     let orderItems = [];
 
     food_list.map((item) => {
-      if(cartItems[item._id] > 0){
+      if (cartItems[item._id] > 0) {
         let itemInfo = item;
         itemInfo["quantity"] = cartItems[item._id];
         orderItems.push(itemInfo)
@@ -42,31 +43,32 @@ const PlaceOrder = () => {
     let orderData = {
       address: data,
       items: orderItems,
-      amount: getTotalCartAmount()+2
+      amount: getTotalCartAmount() + 2
     }
 
-    let response = await axios.post(`${url}/api/order/place`, orderData, {headers: {token}});
+    let response = await axios.post(`${url}/api/order/place`, orderData, { headers: { token } });
 
-    
-    if(response.data.success){
+
+    if (response.data.success) {
       window.location.replace(`${response.data.session_url}`);
     }
-    else{
+    else {
       alert('Order not Placed!');
+      setSpinner(prev => !prev);
     }
-    
+
   }
 
   useEffect(() => {
 
-    if(!token){
+    if (!token) {
       window.location.replace('/cart');
     }
-    else if(getTotalCartAmount() === 0){
+    else if (getTotalCartAmount() === 0) {
       window.location.replace('/cart');
     }
 
-  },[token])
+  }, [token])
 
   return (
     <form onSubmit={placeOrder} className="place-order">
@@ -108,7 +110,12 @@ const PlaceOrder = () => {
               </div>
             </div>
           </div>
-          <button type="submit" >PROCEED TO PAYMENT</button>
+          <button style={{ display: spinner ? "none" : "", alignItems: 'center' }} type="submit" >Proceed to the Payement</button>
+          {spinner &&
+            <div className="btn-spinner">
+              <div className="spinner"></div>
+            </div>
+          }
         </div>
       </div>
     </form>

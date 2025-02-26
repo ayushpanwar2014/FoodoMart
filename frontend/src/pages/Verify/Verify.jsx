@@ -17,10 +17,10 @@ const Verify = () => {
             success, orderId
         })
 
-        if(response.data.success){
+        if (response.data.success) {
             window.location.replace('/myorders');
         }
-        else{
+        else {
             window.location.replace('/');
         }
     }
@@ -33,7 +33,13 @@ const Verify = () => {
 
     return (
         <div className="verify">
-            <div className="spinner"></div>
+            <div style={{ display: success === true ? '' : 'none' }} className="spinner"></div>
+            {success &&
+                <>
+                    <h1> Order Not Placed -:</h1>
+                    <h2>Sorry, Go back to FoodoMart and Order Again !</h2>
+                </>
+            }
         </div>
     )
 }
