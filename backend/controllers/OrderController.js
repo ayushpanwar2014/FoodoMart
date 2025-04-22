@@ -2,7 +2,7 @@ import OrderModel from "../model/OrderModel.js";
 import UserModel from "../model/UserModel.js"
 import Stripe from 'stripe'
 
-const stripe = new Stripe("sk_test_51QuEHrF3TpqoxVxvUHPJBz61f4NhexykhZdtk0Pb4WO0MR5MGNzBeTStV3IUPoYs3JG2aUkOVaY2tIHGv9jRcVJh00L0cfpGFZ");
+const stripe = new Stripe("*****");
 
 //Place Order for Frontend
 export const placeOrder = async (req, res) => {
