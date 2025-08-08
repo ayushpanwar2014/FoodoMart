@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+    -webkit-box-shadow: 2px 3px 32px -1px #000000;
+    box-shadow: 2px 3px 32px -1px #000000;
+    background: #f9f9f9;
+    position: sticky;
+}
+
+.navbar .logo-name .logo {
+    margin-top: -90px;
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
+}
+
+.logo-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.logo-name p {
+    margin-top: -90px;
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.profile {
+    width: 40px;
+}

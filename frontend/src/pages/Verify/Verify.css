@@ -1,0 +1,51 @@
+.verify{
+    min-height: 60vh;
+    display: grid;
+}
+
+.verify .spinner{
+    width: 100px;
+    height: 100px;
+    place-self: center;
+    border: 5px solid #bdbdbd;
+    border-top-color: red;
+    border-radius: 50%;
+    animation: rotate 1s infinite;
+}
+
+.verify h1{
+    text-align: center;
+    font-size: 40px;
+    color: red;
+}
+
+.verify h2{
+    margin-top: -100px;
+    text-align: center;
+    color: gray;
+}
+
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg );
+    }
+}
+
+@media (max-width: 600px) {
+
+
+    .verify{
+        min-height: 40vh;
+    }
+    .verify h1{
+        text-align: center;
+        font-size: 30px;
+        color: red;
+    }
+    .verify h2{
+        text-align: center;
+        color: gray;
+    }
+    
+}
