@@ -6,6 +6,7 @@ import UserRouter from "./routes/userroute.js";
 import CartRouter from "./routes/cartroute.js";
 import OrderRouter from "./routes/orderroute.js";
 import dotenv from 'dotenv'
+import morgan from "morgan";
 dotenv.config();
 
 
@@ -15,6 +16,7 @@ const app = express();
 //middleware 
 app.use(express.json());
 app.use(cors());
+app.use(morgan('tiny'));
 
 //api endpoints
 app.use('/api/food', FoodRouter);
