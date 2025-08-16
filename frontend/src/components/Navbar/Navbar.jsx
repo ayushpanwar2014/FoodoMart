@@ -6,14 +6,16 @@ import { StoreContext } from "../../Context/StoreContext";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({setShowLogin}) => {
-
+  const { startProgress, completeProgress } = useProgress();
   const [menu, setMenu] = useState("home");
   const [open, setOpen] = useState('none');
   const {getTotalCartAmount, token, setToken, user} = useContext(StoreContext);
 
   const logout = () => {
+    startProgress();
     localStorage.removeItem('token')
     setToken("");
+    completeProgress();
     window.location.replace('/');
   } 
 
