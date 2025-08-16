@@ -45,7 +45,7 @@
     display: grid;
 }
 
-.btn-spinner .spinner{
+ .spinner{
     width: 100px;
     height: 100px;
     place-self: center;
