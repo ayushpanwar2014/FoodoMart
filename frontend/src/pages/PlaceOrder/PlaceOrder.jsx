@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import "./PlaceOrder.css"
 import { StoreContext } from "../../Context/StoreContext";
 import axios from "axios";
+import { useProgress } from "../../Context/ProgressContext";
 
 const PlaceOrder = () => {
 
+  const { startProgress, completeProgress } = useProgress();
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
   const [spinner, setSpinner] = useState(false);
   const [data, setData] = useState({
@@ -28,7 +30,7 @@ const PlaceOrder = () => {
 
   const placeOrder = async (e) => {
     e.preventDefault();
-
+    startProgress()
     setSpinner(prev => !prev);
     let orderItems = [];
 
@@ -50,10 +52,12 @@ const PlaceOrder = () => {
 
 
     if (response.data.success) {
+      completeProgress()
       window.location.replace(`${response.data.session_url}`);
     }
     else {
       alert('Order not Placed!');
+      completeProgress()
       setSpinner(prev => !prev);
     }
 

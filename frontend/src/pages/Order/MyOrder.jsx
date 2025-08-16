@@ -4,35 +4,41 @@ import "./MyOrder.css"
 import { StoreContext } from "../../Context/StoreContext"
 import { assets } from "../../../public/assets/frontend_assets/assets"
 import { toast } from 'react-toastify';
+import { useProgress } from "../../Context/ProgressContext"
 
 const MyOrder = () => {
 
   const [order, setOrder] = useState([]);
   const { url, token } = useContext(StoreContext);
+  const { startProgress, completeProgress } = useProgress();
+
 
   const FetchOrder = async () => {
     try {
-
+      startProgress();
       const userOrder = await axios.post(`${url}/api/order/userorder`, {}, { headers: { token } });
       setOrder(userOrder.data.data)
+      completeProgress();
 
     } catch (error) {
-
+      completeProgress();
       console.log("Order error!" + error)
     }
   }
 
   const handleToRemove = async (id) => {
     try {
-
+      startProgress();
       const response = await axios.post(`${url}/api/order/removeOrder`, { id });
 
       if (response.data.success) {
         toast.success("Order Removes!")
+        completeProgress()
         FetchOrder();
       }
 
     } catch (error) {
+      completeProgress()
       toast.error("Order not removed!" + error)
     }
   }
@@ -41,7 +47,7 @@ const MyOrder = () => {
     if (token) {
       FetchOrder();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token])
 
   return (

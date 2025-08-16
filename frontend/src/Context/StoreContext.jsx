@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios"
+import { useProgress } from "./ProgressContext";
 
 export const StoreContext = createContext(null);
 
@@ -9,6 +10,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const url = import.meta.env.VITE_BACKEND_URL;
     const [token, setToken] = useState("");
+    const { startProgress, completeProgress } = useProgress();
 
     const [food_list, setFoodList] = useState([]);
     
@@ -61,10 +63,11 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchfood_list = async () => {
-
+        startProgress();
         const response = await axios.get(`${url}/api/food/foodlist`);
 
         setFoodList(response.data.data)
+        completeProgress()
     }
 
     const loadCartData = async (token) => {

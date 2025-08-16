@@ -8,10 +8,17 @@ import Footer from './components/Footer/Footer'
 import Login from './components/LoginPopUp/Login'
 import Verify from './pages/Verify/Verify'
 import MyOrder from './pages/Order/MyOrder'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, cssTransition } from 'react-toastify'
+
+
 
 const App = () => {
-
+  // ✅ Custom fade transition
+  const Fade = cssTransition({
+    enter: "fadeIn",
+    exit: "fadeOut",
+    duration: [400, 300], // enter, exit
+  });
   const [showLogin, setShowLogin] = useState(false);
 
   return (
@@ -26,7 +33,20 @@ const App = () => {
           <Route path='/verify' element={<Verify />} />
           <Route path='/myorders' element={<MyOrder />} />
         </Routes>
-        <ToastContainer />
+        <ToastContainer
+          position="top-right"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          transition={Fade}   // ✅ custom fade transition
+          toastClassName="custom-toast"
+          bodyClassName="custom-toast-body"
+        />
       </div>
       <Footer />
     </>
