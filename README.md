@@ -1,10 +1,9 @@
-
-Screenshots
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=30&pause=1000&color=FF3737&background=3159FF00&width=800&lines=%F0%9F%8D%94+FoodoMart+%E2%80%93+Online+Food+Delivery+Platform)](https://git.io/typing-svg)
 
 <img width="1360" height="900" alt="Foodomart" src="https://github.com/user-attachments/assets/2ae14df9-19f2-4b7a-8a93-69b1fbf1a880" />
 
 
-# Blog Website – Online Food Delivery Platform
+# 
 
 Full-Stack Developer | Feb – Jun 2024
 GitHub Repository: [https://github.com/ayushpanwar2014/FoodoMart](https://github.com/ayushpanwar2014/FoodoMart) | Remote  
