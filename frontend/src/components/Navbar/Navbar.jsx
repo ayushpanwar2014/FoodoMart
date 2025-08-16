@@ -3,6 +3,7 @@ import {assets} from "../../../public/assets/frontend_assets/assets"
 import { useContext, useState } from "react"
 import {Link} from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
+import { useProgress } from "../../Context/ProgressContext";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({setShowLogin}) => {
