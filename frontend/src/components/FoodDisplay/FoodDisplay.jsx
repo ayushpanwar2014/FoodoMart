@@ -13,7 +13,7 @@ const FoodDisplay = ({ category }) => {
       <h2>Top Dishes Near You</h2>
 
       {
-        !food_list && food_list.length === 0 ? (
+        !food_list || food_list.length === 0 ? (
           <div className="btn-spinner">
             <div className="spinner"></div>
           </div>
