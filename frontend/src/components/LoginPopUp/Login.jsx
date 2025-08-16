@@ -4,39 +4,41 @@ import { assets } from "../../../public/assets/frontend_assets/assets";
 import axios from "axios"
 import { StoreContext } from "../../Context/StoreContext";
 import { toast } from "react-toastify";
+import { useProgress } from "../../Context/ProgressContext";
 
 const Login = ({ setShowLogin }) => {
 
   const [currState, setCurrState] = useState("Login");
-  const {setToken, url} = useContext(StoreContext);
-  
+  const { setToken, url } = useContext(StoreContext);
+  const { startProgress, completeProgress } = useProgress();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const email  = formData.get("email");
-    const password  = formData.get("password");
+    const email = formData.get("email");
+    const password = formData.get("password");
 
     try {
-
+      startProgress();
       const response = await axios.post(`${url}/api/user/login`, {
         email,
         password
       })
 
-      if(response.data.success){
-        
+      if (response.data.success) {
+
         setShowLogin(false);
         localStorage.setItem('token', response.data.token);
         setToken(response.data.token);
+        completeProgress();
         window.location.replace('/')
       }
-      
-    } catch (error) {
 
+    } catch (error) {
+      completeProgress();
       console.log(error);
-      toast.error("Wrong Credentials")
+      toast.error("Wrong Credentials");
     }
   }
 
@@ -44,30 +46,32 @@ const Login = ({ setShowLogin }) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const username  = formData.get("username");
-    const email  = formData.get("email");
-    const password  = formData.get("password");
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const password = formData.get("password");
 
     try {
-
+      startProgress();
       const response = await axios.post(`${url}/api/user/register`, {
         username,
         email,
         password
       })
 
-      if(response.data.success){
+      if (response.data.success) {
         localStorage.setItem('token', response.data.token);
         setToken(response.data.token);
         setShowLogin(false);
+        completeProgress();
         toast.success('Account Created!');
       }
-      
+
     } catch (error) {
 
-      console.log(error)
+      console.log(error);
       toast.error("Wrong Credentials");
-      
+      completeProgress();
+
     }
   }
 
