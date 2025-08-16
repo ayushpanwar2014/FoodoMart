@@ -60,47 +60,23 @@ Enhanced scalability with Docker, supporting seamless updates and deployments.
 GitHub Repository: https://github.com/ayushpanwar2014/FoodoMart
 ---
 
-## Features
-- Role-based access control (Admin / Doctor / Patient)  
-- Real-time appointment bookings  
-- Razorpay & COD payment integration  
-- Secure authentication with JWT, rotating refresh tokens, HTTP-only cookies  
-- Redis caching for optimized performance  
-- Media management with Cloudinary  
-- CRUD operations for users, appointments, and doctors  
-- RESTful API endpoints for frontend consumption  
-
----
 
 ## Environment Variables
 The backend requires the following environment variables in a `.env` file:
 
 
 ```bash
-PORT =
-MONGODB_URL =
-CLOUDINARY_NAME =
-CLOUDINARY_API_KEY =
-CLOUDINARY_API_SECRET =
-ADMIN_EMAIL =
-ADMIN_PASSSWORD =
-JWT_SECRET =
-RAZORPAY_KEYID =
-RAZORPAY_KEY_SECRET = 
-CURRENCY =
+JWT_SECRET = 
+MONGODB_DATABASE_URL = 
 FRONTEND_URL = 
-ADMIN_URL = 
-REDIS_PASSWORD = 
-REDIS_HOST = 
-REDIS_PORT = 
 
 ````
 The Frontend requires the following environment variables in a `.env` file:
 
 ```bash
 
-VITE_BACKEND_URL = 
-VITE_RAZORPAY_KEYID = 
+VITE_BACKEND_URL =
+ 
 ````
 
 ---
@@ -108,7 +84,8 @@ The Admin requires the following environment variables in a `.env` file:
 
 ```bash
 
-VITE_BACKEND_URL = 
+VITE_BACKEND_URL =
+
 ````
 
 ---
@@ -118,7 +95,7 @@ VITE_BACKEND_URL =
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ayushpanwar2014/Prescripto.git
+https://github.com/ayushpanwar2014/FoodoMart.git
 ````
 
 2. Install backend dependencies:
@@ -139,24 +116,25 @@ npm start
 ---
 
 ## Backend Dependencies
-
-* argon2
-* cloudinary
-* cookie-parser
-* cors
-* dotenv
-* express
-* express-rate-limit
-* helmet
-* hpp
-* jsonwebtoken
-* mongoose
-* morgan
-* multer
-* razorpay
-* redis
-* zod
-
+```bash
+{
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.6",
+    "morgan": "^1.10.1",
+    "multer": "^1.4.5-lts.1",
+    "node-cache": "^5.1.2",
+    "redis": "^5.8.1",
+    "stripe": "^17.6.0",
+    "validator": "^13.12.0"
+  }
+}
+````
 ---
 
 ## License
