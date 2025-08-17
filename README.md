@@ -2,11 +2,8 @@
 
 <img width="1360" height="900" alt="Foodomart" src="https://github.com/user-attachments/assets/2ae14df9-19f2-4b7a-8a93-69b1fbf1a880" />
 
-
-# 
-
-Full-Stack Developer | Feb – Jun 2024
-GitHub Repository: [https://github.com/ayushpanwar2014/FoodoMart](https://github.com/ayushpanwar2014/FoodoMart) | Remote  
+## Full-Stack Developer | Feb – Jun 2024
+- GitHub Repository: [Repo](https://github.com/ayushpanwar2014/FoodoMart) | Remote  
 
 ---
 
@@ -32,36 +29,31 @@ A scalable food delivery application built with the MERN stack (React, Node.js, 
 
 ## Key Features:
 
+- Real-Time Order Tracking: Enables users to monitor order status live, enhancing user experience.
 
+- Role-Based Access: Supports Users, Restaurants, and Admins for streamlined operations.
 
+- Secure Payments: Integrated Stripe for reliable and secure payment processing.
 
+- Performance Optimization: Utilized Redis caching to reduce API response times and CI/CD pipelines for efficient updates.
 
-Real-Time Order Tracking: Enables users to monitor order status live, enhancing user experience.
+- Media Management: Leveraged Cloudinary for optimized image handling.
 
-Role-Based Access: Supports Users, Restaurants, and Admins for streamlined operations.
-
-Secure Payments: Integrated Stripe for reliable and secure payment processing.
-
-Performance Optimization: Utilized Redis caching to reduce API response times and CI/CD pipelines for efficient updates.
-
-Media Management: Leveraged Cloudinary for optimized image handling.
-
-Scalable Deployment: Employed Docker to ensure consistent and scalable deployments.
+- Scalable Deployment: Employed Docker to ensure consistent and scalable deployments.
 
 ## Achievements:
 
-Improved order processing efficiency by 40% through optimized REST APIs and backend logic.
+- Improved order processing efficiency by 40% through optimized REST APIs and backend logic.
 
-Reduced server load with Redis caching, enabling high-traffic handling.
+- Reduced server load with Redis caching, enabling high-traffic handling.
 
-Enhanced scalability with Docker, supporting seamless updates and deployments.
+- Enhanced scalability with Docker, supporting seamless updates and deployments.
 
-GitHub Repository: https://github.com/ayushpanwar2014/FoodoMart
 ---
 
 
 ## Environment Variables
-The backend requires the following environment variables in a `.env` file:
+- The backend requires the following environment variables in a `.env` file:
 
 
 ```bash
