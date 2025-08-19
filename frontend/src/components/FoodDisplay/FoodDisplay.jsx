@@ -13,8 +13,11 @@ const FoodDisplay = ({ category }) => {
       <h2>Top Dishes Near You</h2>
 
       {
-        !food_list || food_list.length === 0 ? (
+        food_list || food_list.length === 0 ? (
           <div className="btn-spinner">
+            <p style={{ textAlign: 'center', marginTop: '40px',marginBottom: '40px', color: 'red' }}>Please wait ! <br />While backend is Connecting from Render.</p>
+
+
             <div className="spinner"></div>
           </div>
         ) : (
