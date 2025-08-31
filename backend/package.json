@@ -19,9 +19,14 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "npx pm2 start app.js -i max --name FoodoMart-backend --no-daemon",
+    "start:pm2": "pm2 start app.js -i max --name FoodoMart-backend",
+    "dev": "node --watch app.js"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "pm2": "^6.0.8"
+  }
 }
